@@ -14,3 +14,5 @@ docker, docker-compose installed
 
 docker-compose up
 ```
+
+The docker image of Geth used in this example is built from the top-level Dockerfile in https://github.com/gballet/go-ethereum/tree/verkle-trie-proof-in-block-rebased.  This is the working branch for the initial Verkle-trie changes made in Geth.  These changes enable the client to produce blocks with Verkle proofs of accessed-prestate embedded in them.
