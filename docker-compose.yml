@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+        geth:
+                image: jwasinger/client-go:verkle-29-11-2021
+                # network_mode: host
+                volumes:
+                        - "./faucet_password:/root/faucet_password"
+                        - "./genesis.json:/root/genesis.json"
+                        - "./geth-data:/root/geth-data"
+                command:
+                - "--datadir=/root/geth-data"
+                - "--snapshot"
+                - "--nodiscover"
+                - "--http"
+                - "--http.addr=127.0.0.1"
+                - "--http.api=wallet,web3,eth,net,debug"
+                - "--vmodule=\"rpc=12,eth=12,p2p=12\""
+                - "--nodiscover"
+                - "--unlock"
+                - "0xA8Ea391eACD86AB326843579060E42007a5FA93b"
+                - "--password"
+                - "/root/faucet_password"
+                - "--allow-insecure-unlock"
+                - "--mine"
+                - "--miner.threads"
+                - "1"
